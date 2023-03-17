@@ -58,10 +58,9 @@ class Explorer():
         initial_shape = self.data.shape
         self.data = self.data.dropna()
         final_shape = self.data.shape
-        print("Original dataframe shape: ", initial_shape)
-        print("Cleaned dataframe shape: ", final_shape)
+        print("Forma del dataframe limpio: ", final_shape)
         remaining_data = final_shape[0]*100/initial_shape[0]
-        print(f"Remaining data: {remaining_data}")
+        print(f"Data que falta: {remaining_data}")
         if reinstantiateXY:
             self.reinstantiate_x_y()
 
@@ -127,7 +126,7 @@ class Explorer():
         y_ref = list(self.Y_test[self.target])
         if len(y_predict) != len(y_ref):
             print(
-                "Prediction must be the same legth as the test. Try predicting with X_test")
+                "La prediccion debe ser igual de grande que el test, intente con X_test")
             return None
         acc = 0
         test_size = len(y_ref)

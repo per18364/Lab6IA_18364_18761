@@ -44,7 +44,7 @@ class DTClassifier():
             if isinstance(x, pd.DataFrame):
                 x = x.values
             else:
-                print("Not acceptable type of x in prediction")
+                print("Ingrese una variable x aceptable")
                 return None
 
         return [self.make_prediction(i, self.root) for i in x]
@@ -83,11 +83,6 @@ class DTClassifier():
         return best_split
 
     def __find_possibles_threshold(self, featured_values, limit=100):
-        """Make sures i dont get to much value of features being 100 the max. 
-        Args:
-            featured_values (_type_): _description_
-            limit (int, optional): _description_. Defaults to 100.
-        """
         possible_threshold = np.unique(featured_values)
         if possible_threshold.size <= limit:
             return possible_threshold
